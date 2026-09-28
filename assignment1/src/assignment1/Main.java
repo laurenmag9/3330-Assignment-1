@@ -22,28 +22,26 @@ public class Main {
 		
 		// Ticket creation
 		//            			  (Event event, TicketType type, String studentName)
-		ticketManager.createTicket(pizzaParty, studentTicket, "Jerry");
-		ticketManager.createTicket(bandConcert, adultTicket, "Tom");
-		ticketManager.createTicket(homecoming, studentTicket, "Mario");
-		ticketManager.createTicket(footballGame, studentTicket, "Luigi");
-		ticketManager.createTicket(homecoming, studentTicket, "Peach");
+		// assuming createTicket returns int ID
+		int ticket1 = ticketManager.createTicket(pizzaParty, studentTicket, "Jerry");
+		int ticket2 = ticketManager.createTicket(bandConcert, adultTicket, "Tom");
+		int ticket3 = ticketManager.createTicket(homecoming, studentTicket, "Mario");
+		int ticket4 = ticketManager.createTicket(footballGame, studentTicket, "Luigi");
+		int ticket5 = ticketManager.createTicket(homecoming, studentTicket, "Peach");
 
-		ticketManager.cancelTicket(ticketManager.getID());
-		ticketManager.admitTicket(ticketManager.getID());
+		ticketManager.cancelTicket(ticket1); 
+		ticketManager.admitTicket(ticket3); 
 		
-		//ticketManager.admitTicket(cancelled ticket)
+		ticketManager.admitTicket(ticket1); // should fail since ticket1 is has been cancelled
 		
 		// prints all stored tickets (one per line)
-		TicketManager.printAll();
+		ticketManager.printAll();
 		// prints tickets for that event
-		TicketManager.printForEvent();
+		ticketManager.printForEvent(homecoming);
 		
 		
 		
 		
-		
-		
-
 	}
 
 }
