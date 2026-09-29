@@ -69,4 +69,12 @@ public class Ticket {
 		return "Ticket ID: " + ID +	"\nStudent: " + studentName + "\nEvent: " + event + "\nTicket Type: " + ticketType + "\nActive: " + isActive();
 	}
 	
+	public int getId() {
+	    return ID;
+	}
+
+	public Event getEvent() {
+	    return event;
+	}
+	
 }
