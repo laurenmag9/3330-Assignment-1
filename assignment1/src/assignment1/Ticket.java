@@ -12,7 +12,7 @@ public class Ticket {
 		if (ID <= 0) {
 			throw new IllegalArgumentException("ID must be greater than 0");
 		}
-		if (studentName == "" || studentName == null) {
+		if (studentName == null || studentName.isBlank()) {
 			throw new IllegalArgumentException("Name must not be empty");
 		}
 		if (event == null) {
@@ -40,10 +40,10 @@ public class Ticket {
 	}
 	
 	public boolean admit() {
-		if (admitted == true) {
-			System.out.println("Unable to Admit ticket twice!");
-			return false; // failure
-		} 
+		if (cancelled == true || admitted == true) {
+		    System.out.println("Unable to Admit ticket!");
+		    return false;
+		}
 		admitted = true;
 		System.out.println("Ticket has been Admitted");
 		return true; // success
@@ -58,7 +58,7 @@ public class Ticket {
 	}
 	
 	public boolean isActive() {
-		if (cancelled == true || admitted == false) {
+		if (cancelled == true || admitted == true) {
 			return false;
 		}
 		return true;

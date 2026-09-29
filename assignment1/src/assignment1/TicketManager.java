@@ -5,12 +5,15 @@ public class TicketManager {
     private int nextId = 1;
 
     public TicketManager(TicketBook book) {
+        if (book == null) {
+            throw new IllegalArgumentException("Ticket book is required");
+        }
+
         this.book = book;
     }
 
     public int createTicket(Event event, TicketType type, String name) {
-        Ticket ticket = new Ticket(nextId, name, event, type);
-        book.addTicket(ticket);
+        book.createTicket(nextId, name, event, type);
         nextId++;
         return nextId - 1;
     }

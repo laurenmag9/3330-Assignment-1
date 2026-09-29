@@ -1,12 +1,30 @@
 package assignment1;
 
 public class TicketBook {
-    private Ticket[] tickets = new Ticket[100];
-    private int count = 0;
+    private Ticket[] tickets;
+    private int count;
 
-    public void addTicket(Ticket ticket) {
+    public TicketBook(int capacity) {
+        if (capacity <= 0) {
+            throw new IllegalArgumentException("Capacity must be greater than 0");
+        }
+
+        tickets = new Ticket[capacity];
+        count = 0;
+    }
+
+    public Ticket createTicket(int ID, String studentName,
+            Event event, TicketType ticketType) {
+
+        if (count >= tickets.length) {
+            throw new IllegalStateException("Ticket book is full");
+        }
+
+        Ticket ticket = new Ticket(ID, studentName, event, ticketType);
         tickets[count] = ticket;
         count++;
+
+        return ticket;
     }
 
     public Ticket findById(int ID) {
@@ -15,6 +33,7 @@ public class TicketBook {
                 return tickets[i];
             }
         }
+
         return null;
     }
 

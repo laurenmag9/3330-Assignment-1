@@ -14,7 +14,7 @@ public class Main {
 		TicketType studentTicket = new TicketType("Student", 5);
 		TicketType adultTicket = new TicketType("Adult", 10);
 		
-		TicketBook ticketBook = new TicketBook();
+		TicketBook ticketBook = new TicketBook(10);
 		
 		// assuming constructor TicketManager(TicketBook ticketBook);
 		// or TicketBook creates its own TicketManager object?
