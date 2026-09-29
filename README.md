@@ -23,3 +23,5 @@ The program creates campus events, ticket types, and tickets. It demonstrates:
 - Handling invalid ticket operations
 - Printing all tickets
 - Printing tickets for a specific event
+
+Lesa, Yesenia, and Lauren's Assignment 1 for CMP_SCI_3330
